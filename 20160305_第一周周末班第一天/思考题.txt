@@ -10,10 +10,14 @@ function fn(ary) {
 fn(ary);
 console.log(ary);
 
+
+均输出100
 2、
 var i=10;
 console.log(10+(++i)+(i++)+(i++)+(++i));
 console.log(i);
 
+
+58
 3、
 教材的第13页，最后一道题，今天晚上回家，分析出来并且画图
