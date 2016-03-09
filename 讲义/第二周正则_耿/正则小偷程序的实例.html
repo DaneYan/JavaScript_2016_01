@@ -23,7 +23,8 @@
 <script>
 var innerHTML=document.body.innerHTML;
 
-var reg=/<div +id=(["'])content\1 *>([\w\W]+?)<\/div>/
+var reg=/<div +id=(["'])content\1 *>([\w\W]+?)<\/div>/;
+
 console.log(reg.exec(innerHTML));
 
 
