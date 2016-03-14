@@ -9,14 +9,18 @@ var data = null;
 //->1、首先获取后台中的数据
 var xhr = new XMLHttpRequest;
 xhr.open("get", "json/data.txt", false);
+/*var val = xhr.responseText;
+data = utils.jsonParse(val);*/
+
 xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && /^2\d{2}$/.test(xhr.status)) {
         var val = xhr.responseText;
         data = utils.jsonParse(val);
     }
 };
-xhr.send(null);
 
+xhr.send(null);
+console.log(data);
 //->2、实现我们的数据绑定
 function bind() {
     var frg = document.createDocumentFragment();

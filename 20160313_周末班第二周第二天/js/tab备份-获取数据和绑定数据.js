@@ -14,6 +14,7 @@ var xhr = new XMLHttpRequest;
 //2)打开我们需要请求数据的那个文件地址
 xhr.open("get", "json/data.txt", false);
 
+
 //3)监听请求的状态
 xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && /^2\d{2}$/.test(xhr.status)) {
