@@ -1,21 +1,60 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>无标题文档</title>
-<style type="text/css">
-li{ position:relative; width:100px; height:2em; padding:0; margin:10px; background:green; font-weight:bold; text-align:center; line-height:2em;}
-</style>
+    <meta charset="utf-8">
+    <title>无标题文档</title>
+    <style type="text/css">
+        li {
+            position: relative;
+            width: 100px;
+            height: 2em;
+            padding: 0;
+            margin: 10px;
+            background: green;
+            font-weight: bold;
+            text-align: center;
+            line-height: 2em;
+        }
+    </style>
 </head>
 
 <body>
 按此网页演示的效果自己写一份
 <ul>
-<li>第一步</li>
-<li>第二步</li>
-<li>第三步</li>
-<li>第四步</li>
-<li>第五步</li>
+    <li>第一步</li>
+    <li>第二步</li>
+    <li>第三步</li>
+    <li>第四步</li>
+    <li>第五步</li>
+
+
 </ul>
+
+<script>
+    var a = ["零","一","二","三","四","五","六","七","八","九","十"];
+    var count = 6;
+    var reg = /(\d)+/;
+
+    (function () {
+        num = "第"+count+"步";
+//        console.dir(num);
+//        reg.exec(num);
+//        console.dir(reg);
+
+        num = num.replace(reg,a[count]);
+        //var txt = "第"+num+"步";
+        var ul = document.getElementsByTagName("ul")[0];
+        var li = document.createElement("li");
+        li.innerHTML = num;
+        ul.appendChild(li);
+        count++;
+        if(count>10){
+            count = 0;
+        }
+        window.setTimeout(arguments.callee, 5000);
+    })();
+
+    //字数多了?
+</script>
 </body>
 </html>

@@ -25,21 +25,48 @@
 	
 
 function validate(ele,reg,successMessage,errorMessage){
-	
+	var next = ele.nextElementSiblingSibling;
+	//console.dir(next);
+	if(next == null) {
+
+		var span = document.createElement("span");
+		ele.parentNode.insertBefore(span, ele.nextSibling);
+		if (reg.test(ele.value)) {
+			//alert(successMessage);
+			span.innerHTML = successMessage;
+		} else {
+			//alert(errorMessage);
+			span.innerHTML = errorMessage;
+		}
+
+	}else {
+		//var span = document.createElement("span");
+		//ele.parentNode.insertBefore(span, ele.nextSibling);
+		if (reg.test(ele.value)) {
+			//alert(successMessage);
+			next.innerHTML = successMessage;
+		} else {
+			//alert(errorMessage);
+			next.innerHTML = errorMessage;
+		}
+	}
+	//console.dir(span);
 }
+
 var oInputs=document.getElementsByTagName("input");
 //此函数使用方法如下：
+console.dir(oInputs[0]);
 oInputs.item(0).onkeyup=function(){
 		
-		validate(this,/某正则/,"输入正确","输入错误")
-}
+		validate(this,/[\w\u4e00-\u9fa5]+/,"输入正确","输入错误")
+};
 
 oInputs.item(1).onkeyup=function(){
 
-	validate(this,/某正则/,"输入正确","输入错误")
-}
+	validate(this,/\d[1-9]/,"输入正确","输入错误")
+};
 oInputs.item(2).onkeyup=function(){
 
-	validate(this,/某正则/,"输入正确","输入错误")
-}
+	validate(this,/[\w\u4e00-\u9fa5]{1,25}/,"输入正确","输入错误")
+};
 </script>

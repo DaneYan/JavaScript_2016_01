@@ -30,9 +30,20 @@
 <script>
 //写出如下常用正则
 //1、非空验证，2、纯数字 ，3、去首尾空格
+var reg1 = /\w\W/;//fasle为空,true为非空
+var reg1 = /^\d+$/;
+var reg1 = /^ +| +$/;
 
-var reg=/\d+/g
+
+var reg=/\d+/g;
 reg.test("123abc");//结果是什么？原因是什么
 reg.test("abc998");//结果是什么？原因是什么
 reg.test("74xyz");//结果是什么？原因是什么
+
+  //均为true，因为都含数字，有g是全局查找，没有g也都为true
+
+
+  var text = document.body.innerHTML;
+  var reg000 = /^(<\!--)(\w\W)*?(-->)$/;
+  reg.test(text);
 </script>

@@ -65,11 +65,12 @@ function offset(ele){
 		eleBottom=offset(content).top+content.offsetHeight;
 */
 content.b=offset(document.getElementById("content")).top+document.getElementById("content").offsetHeight;//把元素的底边的偏移量保存在这个元素的自定义属性上
+console.log(content.b);
 window.onscroll=function(){
 	var ele=document.getElementById("content");
 		var eleBottom=offset(ele).top+ele.offsetHeight;//这样滚动条每动一次，则就重新计算一次这个值。而这个值是固定的，没必要总是重新计算，则将其提前计算保存下来比较合适。代码如67行
 		var h=(document.documentElement.scrollTop||document.body.scrollTop)+(document.documentElement.clientHeight||document.body.clientHeight);
-		
+		console.log(h,eleBottom);
 		if(h>eleBottom){
 			ele.innerHTML="我到家啦……，别追啦……";
 		}

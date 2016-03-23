@@ -6,5 +6,13 @@
 </head>
 <body>
 <!--封装insertAfter和prepend-->
+<script>
+function insertAfter(oldEle,newEle){
+    oldEle.parentNode.insertBefore(newEle,oldEle.nextSibling);
+}
+function prepend(parent,newEle){
+    parent.insertBefore(newEle,parent.firstChild);
+}
+</script>
 </body>
 </html>
