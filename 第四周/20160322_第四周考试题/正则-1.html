@@ -44,6 +44,8 @@ reg.test("74xyz");//结果是什么？原因是什么
 
 
   var text = document.body.innerHTML;
-  var reg000 = /^(<\!--)(\w\W)*?(-->)$/;
+  var text1 = "cccababababccc";
+  var reg000 = /(<\!--)[\w\W]*?(-->)/g;
+  var reg111 = /(?:ab)+/;
   reg.test(text);
 </script>
