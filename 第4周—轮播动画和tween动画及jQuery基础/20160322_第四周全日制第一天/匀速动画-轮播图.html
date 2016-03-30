@@ -4,61 +4,71 @@
     <meta charset="UTF-8">
     <title></title>
     <style type="text/css">
-        *{
+        * {
             margin: 0;
             padding: 0;
         }
-        ul{
+
+        ul {
             list-style: none;
         }
-        #outer{
+
+        #outer {
             width: 300px;
             height: 200px;
             margin: 10px auto;
             overflow: hidden;
             position: relative;
         }
-        #inner{
-            width:1200px;
+
+        #inner {
+            width: 1200px;
             height: 200px;
             position: absolute;
-            left:0;
-            top:0;
+            left: 0;
+            top: 0;
         }
-        #inner li{
+
+        #inner li {
             width: 300px;
             height: 200px;
             float: left;
-            font-size:45px;
+            font-size: 45px;
             color: #fff;
         }
-        #btn{
+
+        #btn {
             text-align: center;
 
         }
-        #btn span{
+
+        #btn span {
             display: inline-block;
             width: 30px;
             height: 30px;
             line-height: 30px;
-            border-radius:50%;
-            font-size:20px;
+            border-radius: 50%;
+            font-size: 20px;
             color: #fff;
             margin: 10px;
             background: orange;
             text-align: center;
             cursor: pointer;
         }
-        #inner li:nth-child(1){
+
+        #inner li:nth-child(1) {
             background: pink;
         }
-        #inner li:nth-child(2){
+
+        #inner li:nth-child(2) {
             background: orange;
         }
-        #inner li:nth-child(3){
+
+        #inner li:nth-child(3) {
             background: palegreen;
         }
-        #inner li:nth-child(4){
+
+        #inner li:nth-child(4) {
             background: paleturquoise;
         }
     </style>
@@ -85,33 +95,34 @@
     //方向的问题
     //起始位置>终点位置  往左运动 oInner.offsetLeft-10
     //起始位置<终点位置 往右运动  oInner.offsetLeft+10
-    function move(ele,target){
+    function move(ele, target) {
         clearInterval(ele.timer);//清理上个move方法的定时器
-        function step(){
-            if(ele.offsetLeft>target){//往左运动
-                ele.style.left = ele.offsetLeft-17+"px";
-                if(ele.offsetLeft<=target){ //往左运动,超过终点位置时,停留在终点位置
-                    ele.style.left = target+"px";
+        function step() {
+            if (ele.offsetLeft > target) {//往左运动
+                ele.style.left = ele.offsetLeft - 17 + "px";
+                if (ele.offsetLeft <= target) { //往左运动,超过终点位置时,停留在终点位置
+                    ele.style.left = target + "px";
                     window.clearInterval(ele.timer);
                 }
-            }else if(ele.offsetLeft<target){//往右运动
-                ele.style.left = ele.offsetLeft+17+"px";
-                if(ele.offsetLeft>=target){//往右运动,超过终点位置时,停留在终点位置
-                    ele.style.left = target+"px";
+            } else if (ele.offsetLeft < target) {//往右运动
+                ele.style.left = ele.offsetLeft + 17 + "px";
+                if (ele.offsetLeft >= target) {//往右运动,超过终点位置时,停留在终点位置
+                    ele.style.left = target + "px";
                     window.clearInterval(ele.timer);
                 }
-            }else{
+            } else {
                 window.clearInterval(ele.timer);
             }
         }
-        ele.timer = window.setInterval(step,15);
+
+        ele.timer = window.setInterval(step, 15);
     }
     var btn = document.getElementById("btn");
-   var oSpans = btn.getElementsByTagName("span");
-    for(var i = 0;i<oSpans.length;i++){
+    var oSpans = btn.getElementsByTagName("span");
+    for (var i = 0; i < oSpans.length; i++) {
         oSpans[i].index = i;
-        oSpans[i].onclick = function(){
-            move(oInner,-300*this.index);
+        oSpans[i].onclick = function () {
+            move(oInner, -300 * this.index);
         }
     }
     //1-->-300*0

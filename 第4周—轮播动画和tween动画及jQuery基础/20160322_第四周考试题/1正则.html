@@ -40,7 +40,7 @@ reg.test("123abc");//结果是什么？原因是什么
 reg.test("abc998");//结果是什么？原因是什么
 reg.test("74xyz");//结果是什么？原因是什么
 
-  //均为true，因为都含数字，有g是全局查找，没有g也都为true
+  //前两个为true，因为查找完第一个的lastindex是3，但查找完第二个的lastindex是6，所以第三个会从索引为6的开始找，所以第三个是false，有g是全局查找，没有g都为true
 
 
   var text = document.body.innerHTML;

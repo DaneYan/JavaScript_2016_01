@@ -114,7 +114,7 @@
             oSpans[i].onclick = function(){
                 buffer(oInner,-300*this.index);
                 //点击的span标签是哪个
-                setCur(oSpans[this.index])
+                setCur(oSpans[this.index]);
                 //点击时在自动轮播的效果给清理
                 window.clearInterval(autoTimer);
                 autoTimer =window.setInterval(autoLeft,2000);

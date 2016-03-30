@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+
+
+<script>
+
+
+
+    Array.prototype.myForEach = function myForEach(){
+        if(typeof arguments[0] == "function"){
+            var arr = this;
+            for(var i =0;i<arr.length;i++) {
+                var index = i;
+                var ele = arr[i];
+                arguments[0](ele, index, arr);
+            }
+        }
+    };
+
+    var arr1 = [1,2,3,4,5];
+    arr1.myForEach(function(ele,index,arr){
+        console.log(ele+1);
+        console.log(index+10);
+        console.log(arr[index]);
+
+    });
+
+
+    console.dir(new Array);
+</script>
+
+</body>
+</html>

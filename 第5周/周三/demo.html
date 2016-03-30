@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .inner{
+            width: 50px;
+            height: 50px;
+            background-color: #0fb200;
+            position: absolute;
+            left: 0;
+        }
+        #div1{
+            width: 200px;
+            height: 200px;
+            background-color: #00A5FF;
+            margin: 0 auto;
+            position: absolute;
+            left: 0;
+        }
+
+    </style>
+</head>
+<body>
+<div id="div1">
+
+</div>
+
+
+<script>
+    var ele = document.getElementById("div1");
+    ele.onmouseover = function(e){
+
+        e.stopPropagation();
+        e.preventDefault();
+
+        var inner = document.createElement("div");
+        inner.className = "inner";
+        inner.onmouseover = function(e){
+            e.stopPropagation();
+            //e.preventDefault();
+        };
+
+        //alert("asd");
+
+        this.appendChild(inner);
+        inner.style.left = e.pageX-this.offsetLeft+10+"px";
+        inner.style.top = e.pageY-this.offsetTop+10+"px";
+        //console.dir(e);
+
+//        document.body.appendChild(inner);
+//        inner.style.left = e.pageX-this.offsetLeft + "px";
+
+
+
+    };
+
+    ele.onmousemove = function(e){
+
+        //e.stopPropagation();
+        //e.preventDefault();
+
+        var inner = document.getElementsByClassName("inner")[0];
+        if(inner) {
+            inner.style.left = e.pageX - this.offsetLeft + 10 + "px";
+            inner.style.top = e.pageY - this.offsetTop + 10 + "px";
+        }
+
+    };
+
+    ele.onmouseout = function(e){
+        var inner = document.getElementsByClassName("inner")[0];
+        if(inner){
+            this.removeChild(inner);
+        }
+    }
+
+
+</script>
+
+
+</body>
+</html>

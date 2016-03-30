@@ -6,4 +6,4 @@ c.win = function(attr,value){
         document.documentElement[attr] = value;
         document.body[attr] = value;
     }
-}
+};

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+
+
+<script>
+    /*var num ="1234567890";
+
+    var n = num.length%3;
+    console.log(n);
+    var reg = new RegExp("\\d{"+n+"}");
+    reg.exec(num);
+
+*/
+
+    var str1="1234567";
+    str1=str1.split("").reverse().join("");
+    var reg1=/(\d\d\d)/g;
+    console.log(str1);
+    str1=str1.replace(reg1,"$1,"/*function(val){
+        return val+",";
+    }*/);
+    console.log(str1);
+    str1=str1.split("").reverse().join("");
+    console.log(str1);
+
+
+
+</script>
+
+
+</body>
+</html>

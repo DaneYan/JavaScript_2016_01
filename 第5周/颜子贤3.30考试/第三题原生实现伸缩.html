@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #div1{
+            width: 200px;
+            margin: 0 auto;
+            -border: 1px solid black;
+        }
+        #div1 .top .click{
+            width: 200px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background-color: #00A5FF;
+            border: 1px solid black;
+        }
+        #div1 .top .content{
+            width: 200px;
+            height: 300px;
+            line-height: 300px;
+            text-align: center;
+            border:1px solid black;
+            display: none;
+        }
+        #div1 .top .content.show{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+    <div class="top">
+        <div class="click">1</div>
+        <div class="content">11111</div>
+    </div>
+    <div class="top">
+        <div class="click">2</div>
+        <div class="content">22222</div>
+    </div>
+    <div class="top">
+        <div class="click">3</div>
+        <div class="content">33333</div>
+    </div>
+</div>
+
+<script>
+    var clicks = document.getElementsByClassName("click");
+    var contents = document.getElementsByClassName("content");
+    var ZFn = false;
+    for (var i = 0;i<clicks.length;i++){
+        clicks[i].index = i;
+        clicks[i].onclick = function(){
+
+            if(ZFn){
+                for (var j = 0; j < contents.length; j++) {
+                    contents[j].className = "content";
+                }
+                ZFn = false;
+            }else {
+                for (var j = 0; j < contents.length; j++) {
+                    contents[j].className = "content";
+                }
+                contents[this.index].className = "content show";
+                ZFn = true;
+            }
+
+        };
+    }
+
+
+
+</script>
+</body>
+</html>
